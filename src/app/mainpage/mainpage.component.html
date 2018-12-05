@@ -1,0 +1,36 @@
+<nav>
+
+ 
+    <!-- <a *ngIf="cuser; else notShow" routerLink="/homepage" routerLinkActive="active">Home Page</a> -->
+     <!-- <a *ngIf="isLoggedIn$ | async as isLoggedIn" routerLink="/mainpage" routerLinkActive="active">Main Page</a> -->
+    
+    <!-- <span ng-hide="cuser"> -->
+     <!-- <a *ngIf="cuser==true" routerLink="mainpage" routerLinkActive="active">Main Page</a>  -->
+
+     <a *ngIf="!result" routerLink="/mainpage" routerLinkActive="active">Main Page</a> 
+
+    <!-- </span> -->
+    <!-- <ng-template #notShow>
+    <a routerLink="/mainpage" routerLinkActive="active">Main Page</a>
+    </ng-template>    -->
+        <!-- <a *ngIf="result" routerLink="/registration" routerLinkActive="active">Registration</a> -->
+        <!-- <a *ngIf="!cuser" routerLink="/registration" routerLinkActive="active">Registration</a> -->
+   
+        <!-- <a *ngIf="!isLoggedIn$ | async as isLoggedIn " routerLink="/registration" routerLinkActive="active">Registration</a> -->
+        <!-- <span ng-hide="cuser"> -->
+        <!-- <a *ngIf="!cuser" routerLink="/registration" routerLinkActive="active">Registration</a> it was -->
+        <!-- <a *ngIf="!isLoggedIn$" routerLink="/registration" routerLinkActive="active">Registration</a> here -->
+
+        <a *ngIf="!result" routerLink="/registration" routerLinkActive="active">Registration</a>
+
+       <!-- </span> -->
+        <!-- <a *ngIf="cuser; else login" routerLink="/logout" routerLinkActive="active">Logout</a> -->
+        
+        <!-- <ng-template #login>
+          <a routerLink="/login" routerLinkActive="active">Login Page</a>
+          </ng-template>   -->
+  
+          <a *ngIf="!result" routerLink="/login" routerLinkActive="active">Login Page</a>
+  
+          
+       </nav>

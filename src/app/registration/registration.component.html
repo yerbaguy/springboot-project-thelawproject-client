@@ -1,0 +1,10 @@
+<div>
+
+    <input #userNameInput placeholder="username" />
+    <input #userSurnameInput placeholder="usersurname" />
+    <input #userNickNameInput placeholder="usernickname" />
+    <input #userEmailInput placeholder="useremail" />
+    <input #userPasswordInput placeholder="userpassword" />
+    <button (click)="add(userNameInput.value, userSurnameInput.value, userNickNameInput.value, userEmailInput.value, userPasswordInput.value); userNameInput.value = ''; userSurnameInput.value = ''; userNickNameInput.value = '';  userEmailInput.value = ''; userPasswordInput.value = ''">Add Word</button>
+    
+    </div>
