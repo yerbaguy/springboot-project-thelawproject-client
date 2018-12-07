@@ -26,7 +26,7 @@ export class MainpageComponent implements OnInit {
  // isLoggedIn$: Observable<boolean>;
  // isLoggedIn$: boolean;
     result: boolean;
-
+  isLoggedIn$: boolean;
   isLogged: boolean;
   success: boolean;
   userNickname: string;
@@ -37,15 +37,20 @@ export class MainpageComponent implements OnInit {
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    this.usersService.isLoggedIn.subscribe( value => {
+    // this.usersService.isLoggedIn.subscribe( value => {
 
-     // this.isLoggedIn$ = value; //it was here
-     this.result = value;
-     // this.is = value[0].is;
+    //  // this.isLoggedIn$ = value; //it was here
+    //  this.result = value;
+    //  // this.is = value[0].is;
 
-     // this.isLoggedIn$ = true;
-     //this.result = false;
-    })
+    //  // this.isLoggedIn$ = true;
+    //  //this.result = false;
+    // })
+
+    this.usersService._isLoggedIn.subscribe(
+
+      (isLoggedIn$: boolean) => this.isLoggedIn$ = isLoggedIn$
+    )
 
 
     this.usersService.result().subscribe( 
@@ -88,7 +93,8 @@ export class MainpageComponent implements OnInit {
           }
 
 //          localStorage.setItem('currentUser', JSON.stringify(this.userNickName));
-          this.usersService.setLoggedIn(true);
+         // this.usersService.setLoggedIn(true);
+            this.usersService.isLoggedIn = true;
         }
 
         // if (data.length) {

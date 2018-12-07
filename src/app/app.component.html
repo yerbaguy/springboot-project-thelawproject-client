@@ -1,3 +1,14 @@
-<app-mainpage></app-mainpage>
+<!-- <app-mainpage></app-mainpage> -->
+
+<!-- <a *ngIf="!result" routerLink="/" routerLinkActive="active">Main Page</a>
+<a *ngIf="!result" routerLink="/" routerLinkActive="active">Registration</a>
+<a *ngIf="!result" routerLink="/login" routerLinkActive="active">Login</a> 
+<a *ngIf="result" routerLink="/" routerLinkActive="active">Logout</a> -->
+
+<a *ngIf="!isLoggedIn$" routerLink="/" routerLinkActive="active">Main Page</a>
+<a *ngIf="!isLoggedIn$" routerLink="/" routerLinkActive="active">Registration</a>
+<a *ngIf="!isLoggedIn$" routerLink="/login" routerLinkActive="active">Login</a> 
+<!-- <a *ngIf="isLoggedIn$" (click)="onLogout()" routerLinkActive="active">Logout</a> -->
+<button *ngIf="isLoggedIn$" (click)="onLogout()">Logout</button>
 
 <router-outlet></router-outlet>

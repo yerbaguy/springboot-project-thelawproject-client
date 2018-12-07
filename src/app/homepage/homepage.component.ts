@@ -55,7 +55,9 @@ export class HomepageComponent implements OnInit {
    });
 
    // this.router.navigate(['/']);
-    this.router.onSameUrlNavigation;
+   // this.router.onSameUrlNavigation;
+
+   //this.router.navigate(['/']);
 
   }
 }

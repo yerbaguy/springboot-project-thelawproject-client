@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 import { of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
+
 //import { LoginComponent } from '../../login/login.component';
 
 import { Router } from '@angular/router';
@@ -46,7 +47,13 @@ export class UsersService {
 
  // private loggedInStatus = false
 
-  public loggedInStatus: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+ // public loggedInStatus: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+    public isLoggedInSource = new BehaviorSubject<boolean>(false); 
+
+    public _isLoggedIn: Observable<boolean> = this.isLoggedInSource.asObservable();
+
+
 
   lresult:boolean;
 
@@ -80,23 +87,45 @@ export class UsersService {
   constructor(private http: HttpClient, private router: Router) { }
 
 
-  setLoggedIn(value: boolean) {
 
-//    this.loggedInStatus = value  // it was
-    localStorage.setItem('loggedIn', 'true')
+
+ // setLoggedIn(value: boolean) {
+   set isLoggedIn(value: boolean) {
+
+    this.isLoggedInSource.next(value);
+
+
+   // this.loggedInStatus = value  // it was
+   // localStorage.setItem('loggedIn', 'true')
   }
 
 
   get isLoggedIn() {
 
+
+    return this.isLoggedIn;
+     
 //    return this.loggedInStatus
-    return this.loggedInStatus.asObservable();
+//    return this.loggedInStatus.asObservable();
 
    //   return JSON.parse(localStorage.getItem('loggedIn') || this.loggedInStatus.toString())
   }
 
 
+  logoutt() {
 
+//    this.isLoggedIn(false);
+
+   this.isLoggedIn = false;
+   this.router.navigate(['/']);
+
+  }
+
+
+  login() {
+
+    this.isLoggedIn = true;
+  }
 
   addUser(user: Users): Observable<Users> {
 

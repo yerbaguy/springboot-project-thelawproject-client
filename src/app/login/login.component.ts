@@ -52,13 +52,17 @@ export class LoginComponent implements OnInit {
 
    // this.usersService.logout();
 
-    this.loggedInStatus.subscribe ( value => {
+    // this.loggedInStatus.subscribe ( value => {
 
-       this.isLoggedIn$ = value;
-      // this.is = value[0].is;
-    });
+    //    this.isLoggedIn$ = value;
+    //   // this.is = value[0].is;
+    // });
 
+    this.usersService.result().subscribe(
 
+        (isLoggedIn$: boolean) => this.isLoggedIn$ = isLoggedIn$
+
+    );
      
 
 
@@ -143,10 +147,13 @@ export class LoginComponent implements OnInit {
 
              // localStorage.setItem('currentUser', JSON.stringify(this.userNickName));
              // this.router.navigate(['/homepage']);
-              this.router.navigate(['/homepage']);
+             // this.router.navigate(['/']);
+              this.router.navigateByUrl('/homepage');
              // this.router.navigate(['/']);
              // this.users.setLoggedIn(true);
-              this.usersService.setLoggedIn(true);
+             // this.usersService.setLoggedIn(true);
+                this.usersService.isLoggedIn = true;
+          //    this.usersService.isLoggedIn(true);
               this.loggedInStatus.next(true);
               console.log("OK");
           } else {
@@ -154,7 +161,8 @@ export class LoginComponent implements OnInit {
           }
 
           localStorage.setItem('currentUser', JSON.stringify(this.userNickName));
-          this.usersService.setLoggedIn(true);
+         // this.usersService.setLoggedIn(true);
+          this.usersService.isLoggedIn = true;
         }
 
         // if (data.length) {
